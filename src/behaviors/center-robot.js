@@ -11,10 +11,12 @@ module.exports = createBehavior({
         this.status = Status.INVALID;
     },
     start: function() {
+
         this.status = Status.IN_PROGRESS;
         let dofs = jibo.animate.dofs;
-        jibo.animate.centerRobot(dofs.ALL, this.isGlobal, () => {
-            this.status = Status.SUCCEEDED;
+        let self = this;
+        jibo.animate.centerRobot(dofs.ALL, this.isGlobal, function(){
+            self.status = Status.SUCCEEDED;
         });
         return true;
     },

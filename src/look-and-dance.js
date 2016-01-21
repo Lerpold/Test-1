@@ -13,7 +13,7 @@ module.exports = function(callback) {
     //controls. This controlls all parts except the body.
     lookatBuilder.setDOFs(dofs.ALL.minus(dofs.BODY));
     lookatBuilder.setContinuousMode(true);
-    jibo.animate.createAnimationBuilderFromKeysPath(keysPath, root, (builder) => {
+    jibo.animate.createAnimationBuilderFromKeysPath(keysPath, root, function(builder){
         //In this case, this only animates the body.
         builder.setDOFs(dofs.BODY);
         builder.setNumLoops(5);
