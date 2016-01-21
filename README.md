@@ -1,6 +1,6 @@
 # Jibo SDK Sample Code
 
-These sample skills will walk you through different features of the Jibo SDK Behavior Editor. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](https://developer.jibo.com/sdk/docs) for further tools usage and API reference.
+These sample skills will walk you through different features of the Jibo SDK Behavior Editor. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](https://developers.jibo.com/sdk/docs) for further tools usage and API reference.
 
 ## To view sample code:
 
@@ -184,7 +184,7 @@ Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Spea
 
 ### 17: Jibo Makes a Reservation
 
-This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](https://developer.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
+This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](https://developers.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
 
 The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior, Jibo listens for a 'hey-jibo' event and dispatches a 'listen' event, which triggers the `SucceedOnEvent` decorator.
 
