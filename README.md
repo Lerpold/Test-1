@@ -38,13 +38,13 @@ If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors!
 1. Click **src > main.js** in the Project pane to open the skill's main.js file.
 3. Change the following line of code from:
 
-      `let root = factory.create('../behaviors/sequence-01');`
+      `let root = factory.create('../behaviors/01-sequence');`
 
       to
 
-      `let root = factory.create('../behaviors/sequence-XX);`
+      `let root = factory.create('../behaviors/xx-behavior-tree-name);`
 
-      where `XX` is the number of the sample code listed below.
+      where `xx-behavior-tree-name` is the name of the next behavior tree.
 
 ## Sample Behavior Trees
 
@@ -92,9 +92,9 @@ In this example, an `ExecuteScript` behavior sets a property on `notepad` that t
 
 ### 10: Subtrees
 
-A `Subtree` allows for encapsulation within are how behaviors trees. They treat a whole `.bt` file as a single behavior.
+A `Subtree` allows for encapsulation within other behaviors trees. They treat a whole `.bt` file as a single behavior.
 
-The `getNotepad` argument allows a parent tree to pre-populate a Subtree's notepad, allowing a behavior trees to pass arguments to a subtree. The `behviors/10-subtrees/choose-animation.bt` plays an animation according to a property on its notepad, which is set by its parent tree.
+The `getNotepad` argument allows a parent tree to pre-populate a Subtree's notepad, allowing a behavior trees to pass arguments to a subtree. The `behaviors/10-subtrees/choose-animation.bt` plays an animation according to a property on its notepad, which is set by its parent tree.
 
 Subtrees can also return results. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the subtree returns, its parent tree gets that result object. This is how behavior trees deal with return values. If, for example, you had subtree called `get-persons-name.bt`, that subtree might be highly complex and encapsulate a range of behaviors, such as voice recognition, facial identification, and text-to-speech. From the point of view of the parent tree, the mechanism by which that subtree obtains a person's name is a black box, but the end result is that that subtree returns the appropriate information.
 
