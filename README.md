@@ -184,9 +184,25 @@ Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Spea
 
 ### 17: Jibo Makes a Reservation
 
-This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](https://developers.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
+This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the `order.rule` file. Rule files are explained in the [Speech Recognition](https://developers.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation. You can test the rule in the .rule file Test pane by typing the following:
 
-The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior, Jibo listens for a 'hey-jibo' event and dispatches a 'listen' event, which triggers the `SucceedOnEvent` decorator.
+`please reserve me a flight to boston massachusetts`
+
+The test should return the following:
+
+```
+{
+    "Input": "please reserve me a flight to boston massachusetts",
+    "NLParse": {
+        "state": "ma",
+        "book": "air",
+        "city": "boston"
+    },
+    "heuristic_score": 36
+}
+```
+
+The `Listen` behavior in the behavior tree will listen for any strings that match the rule created in the `order.rule` file. The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior, Jibo listens for a 'hey-jibo' event and dispatches the 'listen' event that calls `order.rule`, which triggers the `SucceedOnEvent` decorator.
 
 When the `Listen` behavior gets a valid `NLParse`, `notepad.results` is set, which is later used in the `TextToSpeechJs` behavior to produce a response.
 
