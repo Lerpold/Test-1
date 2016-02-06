@@ -6,9 +6,9 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/01-sequence');
+    let root = factory.create('../behaviors/08-idle');
     root.start();
-    let intervalId = setInterval(() => {
+    let intervalId = setInterval(function() {
         if (root.status !== Status.IN_PROGRESS) {
             clearInterval(intervalId);
             console.log('Behavior tree finished with status ' + root.status);
@@ -19,7 +19,7 @@ function start() {
     }, 33);
 }
 
-jibo.init(() => {
+jibo.init(function() {
     //We need to require any custom behaviors so that they can register themselves
     //with the behavior factory.
     require('./behaviors/center-robot');
