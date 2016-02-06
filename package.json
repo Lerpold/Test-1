@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "array-from": "^2.0.2",
     "behaviorify": "0.1.3",
     "jibo": "0.10.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "license": "UNLICENSED",
   "private": true
 }
