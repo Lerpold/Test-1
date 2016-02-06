@@ -13,8 +13,9 @@ module.exports = createBehavior({
     start: function() {
         this.status = Status.IN_PROGRESS;
         let dofs = jibo.animate.dofs;
+        var thiz = this;
         jibo.animate.centerRobot(dofs.ALL, this.isGlobal, function() {
-            this.status = Status.SUCCEEDED;
+            thiz.status = Status.SUCCEEDED;
         });
         return true;
     },
