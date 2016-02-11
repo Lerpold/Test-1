@@ -2,10 +2,10 @@
 
 let jibo = require('jibo');
 let Status = jibo.bt.Status;
-let createDecorator = jibo.bt.createDecorator;
-let factory = jibo.bt.factory;
 
-module.exports = createDecorator({
+module.exports = jibo.bt.registerDecorator({
+    name: "SucceedOnTouch",
+    namespace: "project",
     constructor: function(onTouch) {
         this.onTouch = onTouch;
         this.status = Status.INVALID;
@@ -34,5 +34,3 @@ module.exports = createDecorator({
         return result;
     }
 });
-
-factory.addBehavior(module, "project");

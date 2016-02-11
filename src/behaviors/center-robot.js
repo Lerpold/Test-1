@@ -2,10 +2,10 @@
 
 let jibo = require('jibo');
 let Status = jibo.bt.Status;
-let createBehavior = jibo.bt.createBehavior;
-let factory = jibo.bt.factory;
 
-module.exports = createBehavior({
+module.exports = jibo.bt.registerBehavior({
+    name: "CenterRobot",
+    namespace: "project",
     constructor: function(isGlobal) {
         this.isGlobal = isGlobal;
         this.status = Status.INVALID;
@@ -26,5 +26,3 @@ module.exports = createBehavior({
         return this.status;
     }
 });
-
-factory.addBehavior(module, "project");
