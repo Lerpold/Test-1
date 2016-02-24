@@ -6,8 +6,8 @@ let createDecorator = jibo.bt.createDecorator;
 let factory = jibo.bt.factory;
 
 module.exports = createDecorator({
-    constructor: function(onTouch) {
-        this.onTouch = onTouch;
+    constructor: function(options) {
+        this.onTouch = options.onTouch;
         this.status = Status.INVALID;
         this.onClickBind =this.onClick.bind(this);
     },
