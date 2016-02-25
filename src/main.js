@@ -4,7 +4,7 @@ let jibo = require ('jibo');
 let Status = jibo.bt.Status;
 
 function start() {
-    let root = jibo.bt.create('../behaviors/15-multiple-decorators');
+    let root = jibo.bt.create('../behaviors/08-idle');
     root.start();
     let intervalId = setInterval(function() {
         if (root.status !== Status.IN_PROGRESS) {
