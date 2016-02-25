@@ -4,14 +4,14 @@
         "class": "Parallel",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            false
-        ],
         "children": [
             19,
             16
         ],
-        "decorators": []
+        "decorators": [],
+        "options": {
+            "succeedOnOne": false
+        }
     },
     "16": {
         "id": 16,
@@ -19,14 +19,14 @@
         "name": "",
         "asset-pack": "core",
         "parent": 3,
-        "args": [],
         "children": [
             17,
             18
         ],
         "decorators": [
             23
-        ]
+        ],
+        "options": {}
     },
     "17": {
         "id": 17,
@@ -34,8 +34,8 @@
         "name": "Choose place to look",
         "asset-pack": "core",
         "parent": 16,
-        "args": [
-            [
+        "options": {
+            "getTarget": [
                 "() => {",
                 "    let x = 1;",
                 "    let y = 0.5 - Math.random();",
@@ -43,21 +43,21 @@
                 "    return {x: x, y: y, z: z};",
                 "}"
             ]
-        ]
+        }
     },
     "18": {
         "id": 18,
         "class": "TimeoutJs",
         "asset-pack": "core",
         "parent": 16,
-        "args": [
-            [
+        "name": "Pause for a bit",
+        "options": {
+            "getTime": [
                 "() => {",
                 "   return 1000 + 2000 * Math.random();",
                 "}"
             ]
-        ],
-        "name": "Pause for a bit"
+        }
     },
     "19": {
         "id": 19,
@@ -65,22 +65,22 @@
         "name": "",
         "asset-pack": "core",
         "parent": 3,
-        "args": [],
         "children": [
             21,
             20
         ],
         "decorators": [
             22
-        ]
+        ],
+        "options": {}
     },
     "20": {
         "id": 20,
         "class": "Blink",
         "asset-pack": "core",
         "parent": 19,
-        "args": [],
-        "name": "Plays a blink animation"
+        "name": "Plays a blink animation",
+        "options": {}
     },
     "21": {
         "id": 21,
@@ -88,46 +88,49 @@
         "name": "Pause for a bit",
         "asset-pack": "core",
         "parent": 19,
-        "args": [
-            [
+        "options": {
+            "getTime": [
                 "() => {",
                 "   return 2000 + 2500 * Math.random();",
                 "}"
             ]
-        ]
+        }
     },
     "22": {
         "id": 22,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "options": {
+            "init": [
                 "() => {",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "  return true;",
                 "}"
             ]
-        ]
+        }
     },
     "23": {
         "id": 23,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "options": {
+            "init": [
                 "() => {",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "  return true;",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

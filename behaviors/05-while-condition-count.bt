@@ -3,12 +3,12 @@
         "id": 1,
         "class": "Sequence",
         "name": "Loop forever",
-        "args": [],
         "children": [
             6,
             9
         ],
-        "decorators": []
+        "decorators": [],
+        "options": {}
     },
     "6": {
         "id": 6,
@@ -16,16 +16,16 @@
         "name": "Play greeting.keys 3 times",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "greeting.keys",
-            [
+        "decorators": [
+            10
+        ],
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ],
-        "decorators": [
-            10
-        ]
+        }
     },
     "9": {
         "id": 9,
@@ -33,17 +33,18 @@
         "name": "Play good job!",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "FX_GoodJob_01.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_GoodJob_01.mp3"
+        }
     },
     "10": {
         "id": 10,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "parent": null,
+        "options": {
+            "init": [
                 "() => {",
                 "    //This function is called once at the start of this decorator.",
                 "    //Here we initialize a count varible.",
@@ -52,13 +53,15 @@
                 "    self.count = 3;",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "    self.count--;",
                 "    return self.count !== 0;",
                 "}"
             ]
-        ],
-        "parent": null
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

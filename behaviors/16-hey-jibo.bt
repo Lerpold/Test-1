@@ -3,12 +3,12 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             2,
             4,
             5
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -16,21 +16,21 @@
         "name": "Idle",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "08-idle.bt",
-            [
+        "decorators": [
+            7
+        ],
+        "options": {
+            "behaviorPath": "08-idle.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ],
-        "decorators": [
-            7
-        ]
+        }
     },
     "4": {
         "id": 4,
@@ -38,9 +38,9 @@
         "name": "",
         "asset-pack": "project",
         "parent": 1,
-        "args": [
-            true
-        ]
+        "options": {
+            "isGlobal": true
+        }
     },
     "5": {
         "id": 5,
@@ -48,28 +48,31 @@
         "name": "Do an excited dance",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "excited.keys",
-            [
+        "options": {
+            "animPath": "excited.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
     },
     "7": {
         "id": 7,
         "class": "SucceedOnEmbedded",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            "hey_jibo",
-            [
+        "options": {
+            "rule": "hey_jibo",
+            "onResult": [
                 "(listener) => {",
                 "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
                 "",
                 "    });",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

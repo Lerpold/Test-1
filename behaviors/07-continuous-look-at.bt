@@ -3,12 +3,12 @@
         "id": 1,
         "class": "Sequence",
         "name": "Jibo spins in a circle",
-        "args": [],
         "children": [
             6,
             2
         ],
-        "decorators": []
+        "decorators": [],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -16,8 +16,9 @@
         "name": "Continuous look at",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "decorators": [],
+        "options": {
+            "getTarget": [
                 "() => {",
                 "    let currentTime = Date.now();",
                 "    let delta = currentTime - notepad.lastTime;",
@@ -32,13 +33,12 @@
                 "    return {x: x, y: y, z: 0.7};",
                 "}"
             ],
-            true,
-            [
+            "isContinuous": true,
+            "config": [
                 "(lookAt) => {",
                 "}"
             ]
-        ],
-        "decorators": []
+        }
     },
     "6": {
         "id": 6,
@@ -46,8 +46,8 @@
         "name": "Initialize variables",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "options": {
+            "exec": [
                 "() => {",
                 "    //notepad is an object scoped within an entire behavior tree",
                 "    //file. Any function in a single .bt file can access it.",
@@ -60,6 +60,9 @@
                 "    notepad.direction = -1;",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }
