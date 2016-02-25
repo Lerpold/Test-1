@@ -6,8 +6,8 @@ let createBehavior = jibo.bt.createBehavior;
 let factory = jibo.bt.factory;
 
 module.exports = createBehavior({
-    constructor: function(isGlobal) {
-        this.isGlobal = isGlobal;
+    constructor: function(options) {
+        this.isGlobal = options.isGlobal;
         this.status = Status.INVALID;
     },
     start: function() {

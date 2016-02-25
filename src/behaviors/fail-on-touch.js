@@ -7,8 +7,8 @@ let factory = jibo.bt.factory;
 let SucceedOnTouch = require('./succeed-on-touch');
 
 module.exports = createDecorator({
-    constructor: function(onTouch) {
-        this.decorator = SucceedOnTouch(onTouch);
+    constructor: function(options) {
+        this.decorator = new SucceedOnTouch(options);
     },
     start: function() {
         return this.decorator.start();
