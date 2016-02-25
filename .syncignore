@@ -1,1 +1,7 @@
-.git/**/*
+.git
+.gitignore
+.idea
+*/.idea
+.bin
+*/.bin
+.DS_Store
