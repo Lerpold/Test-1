@@ -3,10 +3,10 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             3
-        ]
+        ],
+        "options": {}
     },
     "3": {
         "id": 3,
@@ -14,8 +14,8 @@
         "name": "",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "options": {
+            "getTarget": [
                 "() => {",
                 "\tlet jibo = require('jibo');\t",
                 "\tlet entity = jibo.lps.getClosestVisualEntity();",
@@ -39,12 +39,15 @@
                 "\treturn position;",
                 "}"
             ],
-            true,
-            [
+            "isContinuous": true,
+            "config": [
                 "(lookAt) => {",
                 "",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

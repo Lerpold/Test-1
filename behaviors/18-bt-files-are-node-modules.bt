@@ -3,11 +3,11 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             2,
             4
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -15,8 +15,8 @@
         "name": "Dance and look at",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "options": {
+            "exec": [
                 "(succeed, fail) => {",
                 "    //we can require any JavaScript file using a path relative",
                 "    //to this file.",
@@ -26,7 +26,7 @@
                 "    });",
                 "}"
             ]
-        ]
+        }
     },
     "4": {
         "id": 4,
@@ -34,17 +34,20 @@
         "name": "Center robot",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "common/center-robot.bt",
-            [
+        "options": {
+            "behaviorPath": "common/center-robot.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

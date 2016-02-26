@@ -3,14 +3,14 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             2,
             6
         ],
         "decorators": [
             5
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -18,37 +18,37 @@
         "name": "Watch target until \"Hey Jibo\"",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "19-lps.bt",
-            [
+        "decorators": [
+            3
+        ],
+        "options": {
+            "behaviorPath": "19-lps.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ],
-        "decorators": [
-            3
-        ]
+        }
     },
     "3": {
         "id": 3,
         "class": "SucceedOnEmbedded",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            "hey_jibo",
-            [
+        "options": {
+            "rule": "hey_jibo",
+            "onResult": [
                 "(listener) => {",
                 "\tlistener.on('hey-jibo', (asrResult, speakerIds) => {",
                 "",
                 "\t});",
                 "}"
             ]
-        ]
+        }
     },
     "4": {
         "id": 4,
@@ -56,30 +56,30 @@
         "name": "Play excited animation",
         "asset-pack": "core",
         "parent": 137,
-        "args": [
-            "excited.keys",
-            [
+        "options": {
+            "animPath": "excited.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
     },
     "5": {
         "id": 5,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "options": {
+            "init": [
                 "() => {",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "    return true;",
                 "}"
             ]
-        ]
+        }
     },
     "6": {
         "id": 6,
@@ -87,14 +87,14 @@
         "name": "",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            false
-        ],
         "children": [
             136,
             137,
             8
-        ]
+        ],
+        "options": {
+            "succeedOnOne": false
+        }
     },
     "7": {
         "id": 7,
@@ -102,9 +102,9 @@
         "name": "FX_SeeYou_01.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_01.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_01.mp3"
+        }
     },
     "8": {
         "id": 8,
@@ -112,7 +112,6 @@
         "name": "",
         "asset-pack": "core",
         "parent": 6,
-        "args": [],
         "children": [
             7,
             9,
@@ -121,7 +120,8 @@
             23,
             39,
             71
-        ]
+        ],
+        "options": {}
     },
     "9": {
         "id": 9,
@@ -129,9 +129,9 @@
         "name": "FX_SeeYou_02.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_02.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_02.mp3"
+        }
     },
     "11": {
         "id": 11,
@@ -139,9 +139,9 @@
         "name": "FX_SeeYou_03.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_03.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_03.mp3"
+        }
     },
     "15": {
         "id": 15,
@@ -149,9 +149,9 @@
         "name": "FX_SeeYou_04.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_04.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_04.mp3"
+        }
     },
     "23": {
         "id": 23,
@@ -159,9 +159,9 @@
         "name": "FX_SeeYou_05.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_05.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_05.mp3"
+        }
     },
     "39": {
         "id": 39,
@@ -169,9 +169,9 @@
         "name": "FX_SeeYou_06.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_06.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_06.mp3"
+        }
     },
     "71": {
         "id": 71,
@@ -179,9 +179,9 @@
         "name": "FX_SeeYou_07.mp3",
         "asset-pack": "core",
         "parent": 8,
-        "args": [
-            "FX_SeeYou_07.mp3"
-        ]
+        "options": {
+            "audioPath": "FX_SeeYou_07.mp3"
+        }
     },
     "136": {
         "id": 136,
@@ -189,8 +189,8 @@
         "name": "",
         "asset-pack": "core",
         "parent": 6,
-        "args": [
-            [
+        "options": {
+            "getWords": [
                 "(callback) => {",
                 "    let responses = [",
                 "      \"Hey there. I see you.\",",
@@ -201,11 +201,11 @@
                 "    callback(responses[index]);",
                 "}"
             ],
-            [
+            "onWord": [
                 "(word) => {",
                 "}"
             ]
-        ]
+        }
     },
     "137": {
         "id": 137,
@@ -213,12 +213,12 @@
         "name": "",
         "asset-pack": "core",
         "parent": 6,
-        "args": [],
         "children": [
             4,
             138,
             272
-        ]
+        ],
+        "options": {}
     },
     "138": {
         "id": 138,
@@ -226,13 +226,13 @@
         "name": "Play dance",
         "asset-pack": "core",
         "parent": 137,
-        "args": [
-            "dance.keys",
-            [
+        "options": {
+            "animPath": "dance.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
     },
     "272": {
         "id": 272,
@@ -240,12 +240,15 @@
         "name": "Play greetings",
         "asset-pack": "core",
         "parent": 137,
-        "args": [
-            "greeting.keys",
-            [
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

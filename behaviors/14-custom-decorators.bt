@@ -3,11 +3,11 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             2,
             4
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -15,33 +15,33 @@
         "name": "Idle until you tap Jibo's face",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "08-idle.bt",
-            [
+        "decorators": [
+            3
+        ],
+        "options": {
+            "behaviorPath": "08-idle.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ],
-        "decorators": [
-            3
-        ]
+        }
     },
     "3": {
         "id": 3,
         "class": "SucceedOnTouch",
         "name": "",
         "asset-pack": "project",
-        "args": [
-            [
+        "options": {
+            "onTouch": [
                 "() => {",
                 "}"
             ]
-        ]
+        }
     },
     "4": {
         "id": 4,
@@ -49,17 +49,20 @@
         "name": "Center Robot",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "common/center-robot.bt",
-            [
+        "options": {
+            "behaviorPath": "common/center-robot.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

@@ -2,18 +2,15 @@
 
 let jibo = require ('jibo');
 let Status = jibo.bt.Status;
-let factory = jibo.bt.factory;
-
 
 function start() {
-    let root = factory.create('../behaviors/08-idle');
+    let root = jibo.bt.create('../behaviors/08-idle');
     root.start();
     let intervalId = setInterval(function() {
         if (root.status !== Status.IN_PROGRESS) {
             clearInterval(intervalId);
             console.log('Behavior tree finished with status ' + root.status);
-        }
-        else {
+        } else {
             root.update();
         }
     }, 33);

@@ -3,12 +3,12 @@
         "id": 1,
         "class": "Sequence",
         "name": "",
-        "args": [],
         "children": [
             2,
             3,
             4
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -16,18 +16,18 @@
         "name": "Play a static subtree",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "10-subtrees/play-animation.bt",
-            [
+        "options": {
+            "behaviorPath": "10-subtrees/play-animation.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {};",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ]
+        }
     },
     "3": {
         "id": 3,
@@ -35,9 +35,9 @@
         "name": "Play a subtree by passing in arguments",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "10-subtrees/choose-animation.bt",
-            [
+        "options": {
+            "behaviorPath": "10-subtrees/choose-animation.bt",
+            "getNotepad": [
                 "() => {",
                 "    //randomly choose one of two animations",
                 "    let animations = ['excited', 'greeting'];",
@@ -51,11 +51,11 @@
                 "    };",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "}"
             ]
-        ]
+        }
     },
     "4": {
         "id": 4,
@@ -63,19 +63,22 @@
         "name": "Play a subtree and get a return value",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "10-subtrees/return-animation.bt",
-            [
+        "options": {
+            "behaviorPath": "10-subtrees/return-animation.bt",
+            "getNotepad": [
                 "() => {",
                 "    return {",
                 "    };",
                 "}"
             ],
-            [
+            "onResult": [
                 "(treeResult) => {",
                 "    console.log('This subtree played ' + treeResult.animation + '.keys');",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }
