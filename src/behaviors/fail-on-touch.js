@@ -1,8 +1,8 @@
 "use strict";
 
 let jibo = require('jibo');
-let Status = JIBO.bt.Status;
-let Decorator = JIBO.bt.Decorator;
+let Status = jibo.bt.Status;
+let Decorator = jibo.bt.Decorator;
 let SucceedOnTouch = require('./succeed-on-touch');
 
 class FailOnTouch extends Decorator {
