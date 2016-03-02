@@ -1,8 +1,8 @@
 "use strict";
 
 let jibo = require('jibo');
-let Status = JIBO.bt.Status;
-let Behavior = JIBO.bt.Behavior;
+let Status = jibo.bt.Status;
+let Behavior = jibo.bt.Behavior;
 
 class CenterRobot extends Behavior {
     constructor(options) {
