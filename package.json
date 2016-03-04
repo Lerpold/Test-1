@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "array-from": "^2.0.2",
-    "behaviorify": "1.0.0",
+    "behaviorify": "^1.0.0",
     "jibo": "^2.0.0"
   },
   "devDependencies": {},
