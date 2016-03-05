@@ -2,27 +2,28 @@
 
 let jibo = require('jibo');
 let Status = jibo.bt.Status;
-let createDecorator = jibo.bt.createDecorator;
-let factory = jibo.bt.factory;
+let Decorator = jibo.bt.Decorator;
 let SucceedOnTouch = require('./succeed-on-touch');
 
-module.exports = createDecorator({
-    constructor: function(onTouch) {
-        this.decorator = SucceedOnTouch(onTouch);
-    },
-    start: function() {
+class FailOnTouch extends Decorator {
+    constructor(options) {
+        super(options);
+        this.decorator = new SucceedOnTouch(options);
+    }
+    start() {
         return this.decorator.start();
-    },
-    stop: function() {
+    }
+    stop() {
         this.decorator.stop();
-    },
-    update: function(result) {
+    }
+    update(result) {
         let status = this.decorator.update(result);
         if(status === Status.SUCCEEDED) {
             return Status.FAILED;
         }
         return status;
     }
-});
+}
 
-factory.addBehavior(module, "project");
+jibo.bt.register('FailOnTouch', 'project', FailOnTouch);
+module.exports = FailOnTouch;

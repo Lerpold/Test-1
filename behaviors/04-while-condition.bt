@@ -3,14 +3,14 @@
         "id": 1,
         "class": "Sequence",
         "name": "Loop forever",
-        "args": [],
         "children": [
             2,
             3
         ],
         "decorators": [
             4
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -18,13 +18,13 @@
         "name": "Play greeting.keys",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "greeting.keys",
-            [
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
     },
     "3": {
         "id": 3,
@@ -32,30 +32,33 @@
         "name": "Play excited.keys",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            "excited.keys",
-            [
+        "options": {
+            "animPath": "excited.keys",
+            "config": [
                 "(animation) => {",
                 "}"
             ]
-        ]
+        }
     },
     "4": {
         "id": 4,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "options": {
+            "init": [
                 "() => {",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "    //infinite loop",
                 "    return true;",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

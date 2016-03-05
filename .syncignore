@@ -1,1 +1,7 @@
-.git/**/*
+**/.git
+**/.gitignore
+**/.idea
+**/.bin
+**/.DS_Store
+**/jibo-gulp
+**/gulp

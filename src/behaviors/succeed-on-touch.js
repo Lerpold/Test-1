@@ -2,37 +2,37 @@
 
 let jibo = require('jibo');
 let Status = jibo.bt.Status;
-let createDecorator = jibo.bt.createDecorator;
-let factory = jibo.bt.factory;
+let Decorator = jibo.bt.Decorator;
 
-module.exports = createDecorator({
-    constructor: function(onTouch) {
-        this.onTouch = onTouch;
+class SucceedOnTouch extends Decorator {
+    constructor(options) {
+        super(options);
         this.status = Status.INVALID;
-        this.onClickBind =this.onClick.bind(this);
-    },
-    start: function() {
+        this.onClick = this.onClick.bind(this);
+    }
+    start() {
         this.status = Status.IN_PROGRESS;
-        document.addEventListener('click', this.onClickBind);
+        document.addEventListener('click', this.onClick);
         return true;
-    },
-    onClick: function() {
+    }
+    onClick() {
         this.status = Status.SUCCEEDED;
+        this.options.onTouch();
         this.cleanup();
-    },
-    cleanup: function() {
-        document.removeEventListener('onclick', this.onClickBind)
-    },
-    stop: function() {
-        //cleanup if this decorator is stopped
-        this.cleanup();
-    },
-    update: function(result) {
-        if(this.status === Status.SUCCEEDED) {
+    }
+    cleanup() {
+        document.removeEventListener('onclick', this.onClick)
+    }
+    stop() {
+        this.cleanup(); //cleanup if this decorator is stopped
+    }
+    update(result) {
+        if (this.status === Status.SUCCEEDED) {
             return Status.SUCCEEDED;
         }
         return result;
     }
-});
+}
 
-factory.addBehavior(module, "project");
+jibo.bt.register('SucceedOnTouch', 'project', SucceedOnTouch);
+module.exports = SucceedOnTouch;

@@ -3,14 +3,14 @@
         "id": 1,
         "class": "Sequence",
         "name": "Loop forever",
-        "args": [],
         "children": [
             2,
             5
         ],
         "decorators": [
             4
-        ]
+        ],
+        "options": {}
     },
     "2": {
         "id": 2,
@@ -18,8 +18,9 @@
         "name": "Single shot look at",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "decorators": [],
+        "options": {
+            "getTarget": [
                 "() => {",
                 "    let x = 1;",
                 "    let y = 0.5 - Math.random();",
@@ -27,31 +28,30 @@
                 "    return {x: x, y: y, z: z};",
                 "}"
             ],
-            false,
-            [
+            "isContinuous": false,
+            "config": [
                 "(lookAt) => {",
                 "}"
             ]
-        ],
-        "decorators": []
+        }
     },
     "4": {
         "id": 4,
         "class": "WhileCondition",
         "name": "",
         "asset-pack": "core",
-        "args": [
-            [
+        "parent": null,
+        "options": {
+            "init": [
                 "() => {",
                 "}"
             ],
-            [
+            "conditional": [
                 "() => {",
                 "    return true;",
                 "}"
             ]
-        ],
-        "parent": null
+        }
     },
     "5": {
         "id": 5,
@@ -59,13 +59,16 @@
         "name": "Block for a bit",
         "asset-pack": "core",
         "parent": 1,
-        "args": [
-            [
+        "options": {
+            "getTime": [
                 "() => {",
                 "    //block for between 500ms and 1500ms",
                 "    return 500 + 1000 * Math.random();",
                 "}"
             ]
-        ]
+        }
+    },
+    "meta": {
+        "version": 1
     }
 }

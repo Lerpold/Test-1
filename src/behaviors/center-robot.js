@@ -2,29 +2,29 @@
 
 let jibo = require('jibo');
 let Status = jibo.bt.Status;
-let createBehavior = jibo.bt.createBehavior;
-let factory = jibo.bt.factory;
+let Behavior = jibo.bt.Behavior;
 
-module.exports = createBehavior({
-    constructor: function(isGlobal) {
-        this.isGlobal = isGlobal;
+class CenterRobot extends Behavior {
+    constructor(options) {
+        super(options);
         this.status = Status.INVALID;
-    },
-    start: function() {
+    }
+    start() {
         this.status = Status.IN_PROGRESS;
-        let dofs = jibo.animate.dofs;
-        var thiz = this;
-        jibo.animate.centerRobot(dofs.ALL, this.isGlobal, function() {
-            thiz.status = Status.SUCCEEDED;
-        });
+        var _this = this;
+        jibo.animate.centerRobot(
+            jibo.animate.dofs.ALL,
+            this.options.isGlobal,
+            function() {
+                _this.status = Status.SUCCEEDED;
+              }
+        );
         return true;
-    },
-    stop: function() {
-
-    },
-    update: function() {
+    }
+    update() {
         return this.status;
     }
-});
+}
 
-factory.addBehavior(module, "project");
+jibo.bt.register('CenterRobot', 'project', CenterRobot);
+module.exports = CenterRobot;
