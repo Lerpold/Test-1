@@ -4,7 +4,7 @@ let jibo = require ('jibo');
 let Status = jibo.bt.Status;
 
 function start() {
-    let root = jibo.bt.create('../behaviors/08-idle');
+    let root = jibo.bt.create('../behaviors/01-sequence');
     root.start();
     let intervalId = setInterval(function() {
         if (root.status !== Status.IN_PROGRESS) {
@@ -24,6 +24,7 @@ jibo.init(function() {
     require('./behaviors/fail-on-touch');
     //Setup code for displaying Jibo's eye.
     let eyeElement = document.getElementById('eye');
-    jibo.visualize.createRobotRenderer(eyeElement, jibo.visualize.DisplayType.EYE);
-    start();
+    jibo.visualize.createRobotRenderer(eyeElement, jibo.visualize.DisplayType.EYE, function() {
+      start();
+    });
 });

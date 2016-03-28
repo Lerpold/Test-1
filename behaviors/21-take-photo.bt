@@ -1,0 +1,137 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            "f615089e-9b01-4ee7-8c27-1e6ee68c462c",
+            "c30b45e2-3dc9-4816-959a-33f78ad41cc0",
+            "7653fd4d-38be-43be-87e8-ca9e72cc9035",
+            "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "6": {
+        "id": 6,
+        "class": "TakePhoto",
+        "name": "",
+        "options": {
+            "resolution": 2,
+            "onPhoto": [
+                "(error, imageUrl) => {",
+                "  ",
+                "// put the photo's URL on the notepad",
+                "notepad.imageUrl = imageUrl;",
+                "",
+                "}"
+            ],
+            "noDistortion": true
+        },
+        "asset-pack": "core",
+        "parent": "f615089e-9b01-4ee7-8c27-1e6ee68c462c",
+        "decorators": [
+            "273514a2-af90-4962-8e12-d3a53388d345"
+        ]
+    },
+    "meta": {
+        "version": 1
+    },
+    "7653fd4d-38be-43be-87e8-ca9e72cc9035": {
+        "id": "7653fd4d-38be-43be-87e8-ca9e72cc9035",
+        "class": "TimeoutJs",
+        "name": "",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    //display the photo for 3 seconds",
+                "    return 3000;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb": {
+        "id": "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "    //show the eye again",
+                "    document.getElementById('eye').style.display = 'block'; ",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "f615089e-9b01-4ee7-8c27-1e6ee68c462c": {
+        "id": "f615089e-9b01-4ee7-8c27-1e6ee68c462c",
+        "class": "Parallel",
+        "name": "",
+        "options": {
+            "succeedOnOne": false
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "children": [
+            "183e8b3c-372e-4a38-88be-caf4385eaec1",
+            6
+        ]
+    },
+    "183e8b3c-372e-4a38-88be-caf4385eaec1": {
+        "id": "183e8b3c-372e-4a38-88be-caf4385eaec1",
+        "class": "PlayAnimation",
+        "name": "",
+        "options": {
+            "animPath": "camera.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "f615089e-9b01-4ee7-8c27-1e6ee68c462c"
+    },
+    "273514a2-af90-4962-8e12-d3a53388d345": {
+        "id": "273514a2-af90-4962-8e12-d3a53388d345",
+        "class": "StartOnAnimEvent",
+        "name": "",
+        "options": {
+            "eventName": "shutter-click",
+            "onReceived": [
+                "(animFileName, payload) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "c30b45e2-3dc9-4816-959a-33f78ad41cc0": {
+        "id": "c30b45e2-3dc9-4816-959a-33f78ad41cc0",
+        "class": "ExecuteScript",
+        "name": "",
+        "options": {
+            "exec": [
+                "() => {",
+                "  //create a new image",
+                "  let img = new Image();",
+                "  ",
+                "  //set the new image source to the photo's URL",
+                "  img.src = notepad.imageUrl;",
+                "  ",
+                "  //hide the eye",
+                "  document.getElementById('eye').style.display = 'none';  ",
+                "  ",
+                "  //display the photo",
+                "  document.getElementById('photo').appendChild(img);",
+                "  ",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}
