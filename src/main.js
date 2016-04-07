@@ -4,7 +4,7 @@ let jibo = require ('jibo');
 let Status = jibo.bt.Status;
 
 function start() {
-    let root = jibo.bt.create('../behaviors/21-take-photo');
+    let root = jibo.bt.create('../behaviors/01-sequence');
     root.start();
     let intervalId = setInterval(function() {
         if (root.status !== Status.IN_PROGRESS) {
