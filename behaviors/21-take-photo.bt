@@ -6,7 +6,7 @@
         "asset-pack": "core",
         "children": [
             "f615089e-9b01-4ee7-8c27-1e6ee68c462c",
-            "c30b45e2-3dc9-4816-959a-33f78ad41cc0",
+            "009578b6-abf7-448a-9181-e619c976e7d5",
             "7653fd4d-38be-43be-87e8-ca9e72cc9035",
             "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb"
         ],
@@ -16,7 +16,7 @@
     "6": {
         "id": 6,
         "class": "TakePhoto",
-        "name": "",
+        "name": "take photo on shutter-click event",
         "options": {
             "resolution": 2,
             "onPhoto": [
@@ -41,7 +41,7 @@
     "7653fd4d-38be-43be-87e8-ca9e72cc9035": {
         "id": "7653fd4d-38be-43be-87e8-ca9e72cc9035",
         "class": "TimeoutJs",
-        "name": "",
+        "name": "pause with photo on screen for 3 seconds",
         "options": {
             "getTime": [
                 "() => {",
@@ -56,7 +56,7 @@
     "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb": {
         "id": "c382e28c-8998-4c2c-86c1-7c0afc7e9fdb",
         "class": "ExecuteScript",
-        "name": "",
+        "name": "display the eye again",
         "options": {
             "exec": [
                 "() => {",
@@ -85,7 +85,7 @@
     "183e8b3c-372e-4a38-88be-caf4385eaec1": {
         "id": "183e8b3c-372e-4a38-88be-caf4385eaec1",
         "class": "PlayAnimation",
-        "name": "",
+        "name": "play the camera animation",
         "options": {
             "animPath": "camera.keys",
             "config": [
@@ -109,25 +109,28 @@
         },
         "asset-pack": "core"
     },
-    "c30b45e2-3dc9-4816-959a-33f78ad41cc0": {
-        "id": "c30b45e2-3dc9-4816-959a-33f78ad41cc0",
-        "class": "ExecuteScript",
-        "name": "",
+    "009578b6-abf7-448a-9181-e619c976e7d5": {
+        "id": "009578b6-abf7-448a-9181-e619c976e7d5",
+        "class": "ExecuteScriptAsync",
+        "name": "hide the eye and display the photo",
         "options": {
             "exec": [
-                "() => {",
+                "(succeed) => {",
                 "  //create a new image",
                 "  let img = new Image();",
                 "  ",
+                "  //when the image loads...",
+                "  img.addEventListener('load', function() {",
+                "    //hide the eye",
+                "    document.getElementById('eye').style.display = 'none';  ",
+                "    ",
+                "    //display the photo",
+                "    document.getElementById('photo').appendChild(img);",
+                "    succeed();",
+                "  });",
+                "  ",
                 "  //set the new image source to the photo's URL",
                 "  img.src = notepad.imageUrl;",
-                "  ",
-                "  //hide the eye",
-                "  document.getElementById('eye').style.display = 'none';  ",
-                "  ",
-                "  //display the photo",
-                "  document.getElementById('photo').appendChild(img);",
-                "  ",
                 "}"
             ]
         },
